@@ -48,5 +48,3 @@ Portfolio of Shanmukha Jwalith Kristam
 - [Student Academic Performance Analysis](./projects/student-performance-analysis/README.md)  
   Analyzed factors influencing student grades using logistic regression models in R.
 
-## 📈 GitHub Statistics
-![Shanmukha's GitHub Stats](https://github-readme-stats.vercel.app/api?username=jwalith&show_icons=true&hide=prs,issues)
