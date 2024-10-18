@@ -13,10 +13,10 @@ Portfolio of Shanmukha Jwalith Kristam
 
 ## 🛠️ Technical Skills
 
-**Programming Languages:** Python, R, C, Powershell, SQL  
-**Data Science & Analytics:** Machine Learning, Statistics, Computer Vision, NLP, Data Visualization, Web Scraping, PowerBI, Excel  
-**Data Engineering & Cloud:** ETL Pipelines, Apache Spark, Airflow, Kafka, Mage AI, AWS, GCP
-**RPA Tool:** Automation Anywhere
+- **Programming Languages:** Python, R, C, Powershell, SQL  
+- **Data Science & Analytics:** Machine Learning, Statistics, Computer Vision, NLP, Data Visualization, Web Scraping, PowerBI, Excel  
+- **Data Engineering & Cloud:** ETL Pipelines, Apache Spark, Airflow, Kafka, Mage AI, AWS, GCP  
+- **RPA Tool:** Automation Anywhere
 
 ## 💼 Professional Experience
 
