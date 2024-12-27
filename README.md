@@ -40,10 +40,10 @@ Portfolio of Shanmukha Jwalith Kristam
 
 ## 📊 Projects
 
-- [WebChat AI](./projects/webchat-ai/README.md)  
-  Developed an interactive Streamlit app for real-time information extraction from websites using LLMs and web scraping.
+- [Mental Health Chatbot](./projects/Mental-Health-Chatbot/README.md)  
+  The Mental Health Chatbot is an AI-powered tool leveraging technologies like Streamlit, FAISS, and Google's Generative AI to provide secure, personalized, and empathetic mental health support.
 
-- [End-to-End Data Engineering Project](./projects/data-engineering-project/README.md)  
+- [NYC Taxi Data Pipeline and Analysis](./projects/data-engineering-project/README.md)  
   Designed and implemented a data pipeline on GCP for NYC TLC Trip data, creating interactive dashboards in Looker.
 
 - [Student Academic Performance Analysis](./projects/student-performance-analysis/README.md)  
