@@ -46,6 +46,6 @@ Portfolio of Shanmukha Jwalith Kristam
 - [NYC Taxi Data Pipeline and Analysis](./projects/data-engineering-project/README.md)  
   Designed and implemented a data pipeline on GCP for NYC TLC Trip data, creating interactive dashboards in Looker.
 
-- [Student Academic Performance Analysis](./projects/student-performance-analysis/README.md)  
+- [Student Academic Performance Analysis](./projects/R-Programming/README.md)  
   Analyzed factors influencing student grades using logistic regression models in R.
 
