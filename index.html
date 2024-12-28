@@ -5,10 +5,23 @@
   <meta name="description" content="Portfolio of Shanmukha Jwalith Kristam" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jwalith Kristam - Data Scientist & Software Engineer</title>
-  <!-- Fonts: Google Fonts example -->
+
+  <!-- Font: (optional) Roboto + any icon library like FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnH/PR6Dwim2m9Qbq4ns2tlkb0IMt8KZh+73YdKqH3PW8s2JZP0w/YSaKODLLmKe6GcHV+dAA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <!-- Navigation -->
   <nav class="navbar">
@@ -16,6 +29,9 @@
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -58,43 +74,168 @@
     </div>
   </section>
 
+  <!-- Education Section -->
+  <section id="education" class="education">
+    <h2>Education</h2>
+
+    <div class="edu-item">
+      <h3>Stony Brook University <span>Aug 2023 – May 2025</span></h3>
+      <p><strong>Masters of Science in Data Science</strong>, GPA: 3.58/4</p>
+      <p><em>Relevant Courses:</em> Statistical Learning & Computing, Data Analysis, 
+        Data Management, Big Data Computing, Probability.
+      </p>
+    </div>
+
+    <div class="edu-item">
+      <h3>GITAM University <span>Jun 2016 – Apr 2020</span></h3>
+      <p><strong>Bachelor of Technology in Computer Science</strong>, GPA: 8.1/10</p>
+      <p><em>Relevant Courses:</em> Data Structures & Algorithms, 
+        Operating Systems, Machine Learning, Data Mining, Calculus.
+      </p>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="experience">
+    <h2>Experience</h2>
+
+    <div class="exp-item">
+      <h3>Welspot | Data Science Intern <span>May 2024 – Aug 2024, Miami, FL</span></h3>
+      <ul>
+        <li>
+          Engineered 15+ features from daily spending patterns of 9,000+ customers and 
+          integrated Florida economic indicators to enhance the accuracy of cash flow forecasting models.
+        </li>
+        <li>
+          Developed predictive models using XGBoost and ARIMA to forecast 3-month cash flows, 
+          achieving an 86% accuracy rate.
+        </li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <h3>Tata Consultancy Services | Software Developer <span>Oct 2020 – Jun 2023, Bengaluru, India</span></h3>
+      <ul>
+        <li>
+          Automated daily banking tasks (CRM ticket creation, RPA with Automation Anywhere, 
+          Python, PowerShell, REST APIs) saving 1,500+ manual hours annually.
+        </li>
+        <li>
+          Awarded Outstanding Team Member for exceptional contributions to system reliability 
+          and automation efficiency.
+        </li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <h3>Smart Bridge | Machine Learning Intern <span>Mar 2019 – Jun 2019, Hyderabad, India</span></h3>
+      <ul>
+        <li>
+          Developed a real-time criminal identification system employing CNN, OpenCV, and 
+          Haar cascades, increasing facial recognition accuracy to 89%.
+        </li>
+        <li>
+          Deployed the solution on IBM Watson Studio and integrated it with Node-RED for 
+          automated workflows.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills-list">
+      <div class="skills-column">
+        <h3>Programming Languages</h3>
+        <ul>
+          <li>Python</li>
+          <li>R</li>
+          <li>C</li>
+          <li>Powershell</li>
+          <li>SQL</li>
+        </ul>
+      </div>
+      <div class="skills-column">
+        <h3>Data Science & Analytics</h3>
+        <ul>
+          <li>Statistics</li>
+          <li>Data Visualization</li>
+          <li>Exploratory Data Analysis</li>
+          <li>Web Scraping</li>
+          <li>PowerBI, Excel</li>
+        </ul>
+      </div>
+      <div class="skills-column">
+        <h3>Data Engineering & Cloud</h3>
+        <ul>
+          <li>ETL Pipelines</li>
+          <li>Apache Spark, Airflow</li>
+          <li>Terraform, Kafka, Mage AI</li>
+          <li>AWS, GCP</li>
+        </ul>
+      </div>
+      <div class="skills-column">
+        <h3>ML Frameworks</h3>
+        <ul>
+          <li>TensorFlow, PyTorch</li>
+          <li>OpenCV, NLTK</li>
+          <li>Scikit-Learn, Keras</li>
+          <li>Hugging Face, Langchain</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- Projects Section -->
   <section id="projects" class="projects">
     <h2>Projects</h2>
 
     <div class="project-card">
-      <h3>Mental Health Chatbot</h3>
+      <h3>Personalized Mental Health Chatbot</h3>
       <p>
-        An AI-powered chatbot using Streamlit, FAISS, and Google’s Generative AI 
-        to deliver personalized mental health support.
+        Built a context-aware mental health chatbot using RAG with FAISS and Google Gemini, 
+        integrated with a user-friendly Streamlit UI to provide personalized responses based 
+        on user input and historical data.
       </p>
-      <a href="https://github.com/jwalith/Mental-Health-Chatbot" 
-         target="_blank" rel="noopener" class="btn">
-        View on GitHub
-      </a>
+      <a
+        href="https://github.com/jwalith/Mental-Health-Chatbot"
+        target="_blank"
+        rel="noopener"
+        class="btn"
+        >View on GitHub</a
+      >
     </div>
 
     <div class="project-card">
       <h3>NYC Taxi Data Pipeline and Analysis</h3>
       <p>
-        Built a data pipeline on GCP for NYC TLC Trip data, creating 
-        interactive dashboards in Looker.
+        Designed a scalable, end-to-end data pipeline on GCP, leveraging Cloud Functions 
+        and Storage for automated data ingestion, with transformations using Mage AI, 
+        and dashboards in Looker.
       </p>
-      <a href="./projects/data-engineering-project/README.md" 
-         target="_blank" rel="noopener" class="btn">
-        Read More
-      </a>
+      <a
+        href="https://github.com/jwalith"
+        target="_blank"
+        rel="noopener"
+        class="btn"
+        >View Project</a
+      >
     </div>
 
     <div class="project-card">
       <h3>Student Academic Performance Analysis</h3>
       <p>
-        Analyzed factors affecting student grades using logistic regression in R.
+        Analyzed factors influencing student grades using logistic regression in R. 
+        Reduced error rates and provided actionable insights for academic interventions.
       </p>
-      <a href="https://github.com/jwalith/R-Programming/tree/main" 
-         target="_blank" rel="noopener" class="btn">
-        View Repository
-      </a>
+      <a
+        href="https://github.com/jwalith/R-Programming/tree/main"
+        target="_blank"
+        rel="noopener"
+        class="btn"
+        >View Repository</a
+      >
     </div>
   </section>
 
@@ -102,8 +243,7 @@
   <section id="contact" class="contact">
     <h2>Contact</h2>
     <p>
-      Interested in working together or want to learn more? 
-      Drop a message below:
+      Interested in working together or want to learn more? Drop a message below:
     </p>
 
     <form action="https://formspree.io/f/yourFormID" method="POST" class="contact-form">
@@ -129,7 +269,8 @@
   <!-- Footer -->
   <footer class="footer">
     <p>
-      © <span id="year"></span> Shanmukha Jwalith Kristam. All Rights Reserved.
+      © <span id="year"></span> Shanmukha Jwalith Kristam | 
+      <a href="mailto:jwalithkristam@gmail.com">jwalithkristam@gmail.com</a>
     </p>
   </footer>
 
