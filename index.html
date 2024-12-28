@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Portfolio of Shanmukha Jwalith Kristam" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jwalith Kristam - Data Scientist & Software Engineer</title>
+  <!-- Fonts: Google Fonts example -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-logo">Jwalith</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>I'm <span class="highlight">Shanmukha Jwalith Kristam</span></h1>
+      <h2>Data Scientist & Software Engineer</h2>
+      <p>
+        Passionate about Machine Learning, Data Engineering, and Cloud.
+        Currently pursuing a Master's in Data Science at Stony Brook University.
+      </p>
+      <a href="#projects" class="btn">See My Work</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+      <p>
+        I’m a dedicated Data Scientist and Software Engineer with experience in
+        building end-to-end solutions for data-driven businesses. Skilled in Python, 
+        R, SQL, Automation Anywhere, and cloud platforms like AWS & GCP.
+      </p>
+      <p>
+        <strong>Location:</strong> Stony Brook, NY<br />
+        <strong>Email:</strong> 
+        <a href="mailto:jwalithkristam@gmail.com">jwalithkristam@gmail.com</a>
+      </p>
+      <p>
+        <strong>Connect:</strong> 
+        <a href="https://www.linkedin.com/in/jwalith-kristam-s2106/"
+           target="_blank" rel="noopener">LinkedIn</a> | 
+        <a href="https://github.com/jwalith" 
+           target="_blank" rel="noopener">GitHub</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+
+    <div class="project-card">
+      <h3>Mental Health Chatbot</h3>
+      <p>
+        An AI-powered chatbot using Streamlit, FAISS, and Google’s Generative AI 
+        to deliver personalized mental health support.
+      </p>
+      <a href="https://github.com/jwalith/Mental-Health-Chatbot" 
+         target="_blank" rel="noopener" class="btn">
+        View on GitHub
+      </a>
+    </div>
+
+    <div class="project-card">
+      <h3>NYC Taxi Data Pipeline and Analysis</h3>
+      <p>
+        Built a data pipeline on GCP for NYC TLC Trip data, creating 
+        interactive dashboards in Looker.
+      </p>
+      <a href="./projects/data-engineering-project/README.md" 
+         target="_blank" rel="noopener" class="btn">
+        Read More
+      </a>
+    </div>
+
+    <div class="project-card">
+      <h3>Student Academic Performance Analysis</h3>
+      <p>
+        Analyzed factors affecting student grades using logistic regression in R.
+      </p>
+      <a href="https://github.com/jwalith/R-Programming/tree/main" 
+         target="_blank" rel="noopener" class="btn">
+        View Repository
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>
+      Interested in working together or want to learn more? 
+      Drop a message below:
+    </p>
+
+    <form action="https://formspree.io/f/yourFormID" method="POST" class="contact-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="_replyto" id="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="6" required></textarea>
+      </div>
+
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>
+      © <span id="year"></span> Shanmukha Jwalith Kristam. All Rights Reserved.
+    </p>
+  </footer>
+
+  <script>
+    // Update footer with current year
+    const yearSpan = document.getElementById("year");
+    yearSpan.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
