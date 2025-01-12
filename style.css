@@ -288,6 +288,40 @@ section h2 {
   align-self: flex-start;
   margin-top: auto;
 }
+.publications {
+  background-color: #f7f7f7;
+  padding: 3em 2em;
+  text-align: center;
+}
+
+.publication-item {
+  max-width: 800px;
+  margin: 0 auto 1.5em auto;
+  padding: 1em;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.publication-item h3 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.publication-item p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.publication-item a {
+  color: #f6c90e;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.publication-item a:hover {
+  text-decoration: underline;
+}
 
 /* Contact Section */
 .contact {
