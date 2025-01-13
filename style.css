@@ -124,7 +124,7 @@ section h2 {
   margin-bottom: 1.5em;
 }
 
-.social-links {
+/* .social-links {
   margin-top: 2em;
 }
 
@@ -137,6 +137,35 @@ section h2 {
 
 .social-links a:hover {
   color: #f6c90e;
+} */
+/* Social Links Styling */
+.social-links {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.social-links a {
+  margin: 0 1em;
+  font-size: 1.5em;
+  display: inline-flex;
+  align-items: center;
+  color: #1e1e1e;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-links a i {
+  margin-right: 8px;
+  font-size: 1.8em;
+}
+
+.social-links a:hover {
+  color: #f6c90e;
+}
+
+.social-links a:hover i {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
 }
 
 /* Education Section */
@@ -412,4 +441,60 @@ section h2 {
   .projects > div {
     grid-template-columns: 1fr;
   }
+}
+
+/* Scroll-to-Top Button */
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  background-color: #f6c90e;
+  color: #1e1e1e;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5em;
+  cursor: pointer;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.scroll-to-top-btn.visible {
+  display: flex;
+  opacity: 1;
+}
+
+.scroll-to-top-btn:hover {
+  background-color: #e2b50c;
+}
+
+/* Typing Effect Styling */
+.typed-text {
+  font-weight: bold;
+  color: #f6c90e;
+  margin-left: 10px;
+}
+
+/* Card Hover Animation */
+.project-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Navbar Scroll Shadow */
+.navbar {
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar.scrolled {
+  background-color: rgba(30, 30, 30, 0.95);
+  padding: 0.5em 2em;
 }
