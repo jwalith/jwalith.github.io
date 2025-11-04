@@ -158,7 +158,7 @@ if (contactForm) {
         } catch (error) {
             console.error('EmailJS Error:', error);
             // Show error message
-            showNotification('Failed to send message. Please try again or email me directly at contact@jwalith.com', 'error');
+            showNotification('Failed to send message. Please try again or email me directly at jwalithkristam@gmail.com', 'error');
         } finally {
             // Reset button
             submitBtn.textContent = originalText;
