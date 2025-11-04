@@ -561,7 +561,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
     
-    const animatedElements = document.querySelectorAll('.project-card, .paper-card, .experience-card, .education-card');
+    const animatedElements = document.querySelectorAll('.project-card, .paper-card, .experience-card, .education-card, .skills-section');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -627,11 +627,31 @@ const VisitorCounter = {
     }
 };
 
-// Initialize visitor counter when page loads
+// Skills Category Switching
 document.addEventListener('DOMContentLoaded', () => {
-    VisitorCounter.display();
-    VisitorCounter.getSessionInfo();
+    const skillButtons = document.querySelectorAll('.skill-category-btn');
+    const skillContents = document.querySelectorAll('.skill-category-content');
     
+    skillButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const category = button.getAttribute('data-category');
+            
+            // Remove active class from all buttons and contents
+            skillButtons.forEach(btn => btn.classList.remove('active'));
+            skillContents.forEach(content => content.classList.remove('active'));
+            
+            // Add active class to clicked button and corresponding content
+            button.classList.add('active');
+            const targetContent = document.getElementById(category);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+        });
+    });
+});
+
+// Initialize Google Analytics tracking when page loads
+document.addEventListener('DOMContentLoaded', () => {
     // Track page view in Google Analytics
     if (typeof gtag !== 'undefined') {
         gtag('event', 'page_load', {
