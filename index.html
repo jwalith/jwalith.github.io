@@ -507,8 +507,13 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">Innovative AI & ML solutions that push boundaries</p>
+                <p class="section-subtitle">Where machine learning meets real world applications</p>
             </div>
+            <div class="project-categories">
+                <button class="project-category-btn active" data-filter="all">Gen AI & ML</button>
+                <button class="project-category-btn" data-filter="datascience">Data Science & Analytics</button>
+            </div>
+            <div class="projects-container" data-category="all">
             <div class="projects-grid">
                 <!-- Project 1: Quantized-LLM -->
                 <div class="project-card featured-project">
@@ -808,6 +813,320 @@
                             <a href="https://github.com/jwalith/Emotion-Detection" target="_blank" class="btn btn-outline">
                                 <i class="fab fa-github"></i> View on GitHub
                             </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+            <!-- Data Science & Analytics Projects -->
+            <div class="projects-container" data-category="datascience" style="display: none;">
+                <div class="projects-grid">
+                    <!-- Project 1: YouTube Comment Analytics -->
+                    <div class="project-card featured-project">
+                        <div class="project-badge">Data Science</div>
+                        <div class="project-image">
+                            <div class="project-image-placeholder youtube-analytics">
+                                <div class="streaming-visual">
+                                    <div class="data-stream"></div>
+                                    <div class="data-stream"></div>
+                                    <div class="data-stream"></div>
+                                    <div class="kafka-icon">⚡</div>
+                                </div>
+                                <div class="project-overlay-text">Kafka + Spark</div>
+                            </div>
+                            <div class="project-overlay">
+                                <a href="https://github.com/jwalith/Youtube-Comment-Analytics" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">YouTube Comment Analytics</h3>
+                                <span class="project-tech-main">Python</span>
+                            </div>
+                            <p class="project-description">
+                                Real-time analytics pipeline for YouTube comments using Kafka, PySpark, and Hugging Face models. Performs topic classification, toxicity detection, and engagement prediction on streaming comment data.
+                            </p>
+                            <div class="project-metrics">
+                                <div class="metric">
+                                    <i class="fas fa-stream"></i>
+                                    <span>Real-time Streaming</span>
+                                </div>
+                                <div class="metric">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Toxicity Detection</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Kafka</span>
+                                <span class="tech-tag">PySpark</span>
+                                <span class="tech-tag">Hugging Face</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">NLP</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/jwalith/Youtube-Comment-Analytics" target="_blank" class="btn btn-outline">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: R Programming -->
+                    <div class="project-card featured-project">
+                        <div class="project-badge">Data Science</div>
+                        <div class="project-image">
+                            <div class="project-image-placeholder r-programming">
+                                <div class="statistical-visual">
+                                    <div class="chart-bar"></div>
+                                    <div class="chart-bar"></div>
+                                    <div class="chart-bar"></div>
+                                    <div class="chart-bar"></div>
+                                    <div class="chart-bar"></div>
+                                </div>
+                                <div class="project-overlay-text">R Analytics</div>
+                            </div>
+                            <div class="project-overlay">
+                                <a href="https://github.com/jwalith/R-Programming" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Student Data Analysis</h3>
+                                <span class="project-tech-main">R</span>
+                            </div>
+                            <p class="project-description">
+                                To analyze and model the factors affecting grades by students using R programming. Includes data visualization, statistical modeling, and exploratory data analysis.
+                            </p>
+                            <div class="project-metrics">
+                                <div class="metric">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span>Data Visualization</span>
+                                </div>
+                                <div class="metric">
+                                    <i class="fas fa-calculator"></i>
+                                    <span>Statistical Analysis</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">R</span>
+                                <span class="tech-tag">Statistics</span>
+                                <span class="tech-tag">Data Visualization</span>
+                                <span class="tech-tag">EDA</span>
+                                <span class="tech-tag">Hypothesis Testing</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/jwalith/R-Programming" target="_blank" class="btn btn-outline">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: COTA -->
+                    <div class="project-card featured-project">
+                        <div class="project-badge">Data Science</div>
+                        <div class="project-image">
+                            <div class="project-image-placeholder cota-analytics">
+                                <div class="racing-visual">
+                                    <div class="race-track"></div>
+                                    <div class="f1-car">
+                                        <div class="car-body"></div>
+                                        <div class="car-wheel"></div>
+                                        <div class="car-wheel"></div>
+                                    </div>
+                                    <div class="race-flag"></div>
+                                </div>
+                                <div class="project-overlay-text">COTA</div>
+                            </div>
+                            <div class="project-overlay">
+                                <a href="https://github.com/jwalith/COTA" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Race Story Analytics</h3>
+                                <span class="project-tech-main">Data Analytics</span>
+                            </div>
+                            <p class="project-description">
+                                A narrative data visualization platform that transforms raw racing telemetry into compelling race stories through interactive analytics and storytelling.
+                            </p>
+                            <div class="project-metrics">
+                                <div class="metric">
+                                    <i class="fas fa-database"></i>
+                                    <span>Data Analysis</span>
+                                </div>
+                                <div class="metric">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Dashboards</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Data Analysis</span>
+                                <span class="tech-tag">Visualization</span>
+                                <span class="tech-tag">Analytics</span>
+                                <span class="tech-tag">Streamlit</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/jwalith/COTA" target="_blank" class="btn btn-outline">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Podcast Listening Time Predictor -->
+                    <div class="project-card featured-project">
+                        <div class="project-badge">Data Science</div>
+                        <div class="project-image">
+                            <div class="project-image-placeholder podcast-predictor">
+                                <div class="timeseries-visual">
+                                    <div class="timeseries-line"></div>
+                                    <div class="timeseries-point"></div>
+                                    <div class="timeseries-point"></div>
+                                    <div class="timeseries-point"></div>
+                                    <div class="timeseries-point"></div>
+                                </div>
+                                <div class="project-overlay-text">Time Series</div>
+                            </div>
+                            <div class="project-overlay">
+                                <a href="https://github.com/jwalith/podcast-listening-time-predictor" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Podcast Listening Time Predictor</h3>
+                                <span class="project-tech-main">Statistics</span>
+                            </div>
+                            <p class="project-description">
+                                Predictive analytics model to forecast podcast listening time based on user behavior, content features, and historical patterns. Uses time series analysis and machine learning for accurate predictions.
+                            </p>
+                            <div class="project-metrics">
+                                <div class="metric">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Time Series</span>
+                                </div>
+                                <div class="metric">
+                                    <i class="fas fa-brain"></i>
+                                    <span>Predictive Modeling</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Time Series</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Forecasting</span>
+                                <span class="tech-tag">Predictive Analytics</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/jwalith/podcast-listening-time-predictor" target="_blank" class="btn btn-outline">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: London Bike Rides Dashboard -->
+                    <div class="project-card featured-project">
+                        <div class="project-badge">Data Science</div>
+                        <div class="project-image">
+                            <div class="project-image-placeholder bike-dashboard">
+                                <div class="map-visual">
+                                    <div class="map-grid"></div>
+                                    <div class="map-marker"></div>
+                                    <div class="map-marker"></div>
+                                    <div class="map-marker"></div>
+                                    <div class="map-route"></div>
+                                </div>
+                                <div class="project-overlay-text">Dashboard</div>
+                            </div>
+                            <div class="project-overlay">
+                                <a href="https://github.com/jwalith/London-Bike-Rides-Dashboard" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">London Bike Rides Dashboard</h3>
+                                <span class="project-tech-main">Tableau</span>
+                            </div>
+                            <p class="project-description">
+                                Interactive dashboard for analyzing London bike sharing data. Visualizes ride patterns, peak usage times, weather correlations, and provides insights for urban mobility analysis.
+                            </p>
+                            <div class="project-metrics">
+                                <div class="metric">
+                                    <i class="fas fa-chart-pie"></i>
+                                    <span>Data Visualization</span>
+                                </div>
+                                <div class="metric">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                    <span>Spatial Analysis</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Dashboard</span>
+                                <span class="tech-tag">Data Visualization</span>
+                                <span class="tech-tag">Tableau</span>
+                                <span class="tech-tag">Pandas</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/jwalith/London-Bike-Rides-Dashboard" target="_blank" class="btn btn-outline">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: Sentimental Analysis -->
+                    <div class="project-card featured-project">
+                        <div class="project-badge">Data Science</div>
+                        <div class="project-image">
+                            <div class="project-image-placeholder sentiment-analysis">
+                                <div class="sentiment-visual">
+                                    <div class="sentiment-text"></div>
+                                    <div class="sentiment-text"></div>
+                                    <div class="sentiment-indicator positive"></div>
+                                    <div class="sentiment-indicator negative"></div>
+                                    <div class="sentiment-indicator neutral"></div>
+                                </div>
+                                <div class="project-overlay-text">NLP + Sentiment</div>
+                            </div>
+                            <div class="project-overlay">
+                                <a href="https://github.com/jwalith/Sentimental-analysis" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Sentimental Analysis</h3>
+                                <span class="project-tech-main">NLP</span>
+                            </div>
+                            <p class="project-description">
+                                Natural language processing project for sentiment analysis of text data. Classifies emotions and opinions from social media, reviews, or customer feedback using advanced NLP techniques and machine learning models.
+                            </p>
+                            <div class="project-metrics">
+                                <div class="metric">
+                                    <i class="fas fa-comments"></i>
+                                    <span>Text Analysis</span>
+                                </div>
+                                <div class="metric">
+                                    <i class="fas fa-smile"></i>
+                                    <span>Emotion Detection</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">NLP</span>
+                                <span class="tech-tag">Sentiment Analysis</span>
+                                <span class="tech-tag">Text Classification</span>
+                                <span class="tech-tag">Machine Learning</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/jwalith/Sentimental-analysis" target="_blank" class="btn btn-outline">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

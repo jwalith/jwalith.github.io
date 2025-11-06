@@ -648,6 +648,43 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    
+    // Project Category Filtering
+    const projectCategoryButtons = document.querySelectorAll('.project-category-btn');
+    const projectContainers = document.querySelectorAll('.projects-container');
+    
+    projectCategoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.getAttribute('data-filter');
+            
+            // Remove active class from all buttons
+            projectCategoryButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            button.classList.add('active');
+            
+            // Show/hide project containers based on filter
+            projectContainers.forEach(container => {
+                const category = container.getAttribute('data-category');
+                if (filter === 'all' && category === 'all') {
+                    container.style.display = 'block';
+                } else if (filter === category) {
+                    container.style.display = 'block';
+                } else {
+                    container.style.display = 'none';
+                }
+            });
+            
+            // Smooth scroll to projects section if not already visible
+            const projectsSection = document.getElementById('projects');
+            if (projectsSection) {
+                const rect = projectsSection.getBoundingClientRect();
+                if (rect.top < 0 || rect.bottom > window.innerHeight) {
+                    projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
+    });
 });
 
 // Initialize Google Analytics tracking when page loads
