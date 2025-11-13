@@ -65,6 +65,12 @@
                 <p class="hero-cta">
                     <a href="#projects" class="cta-link">View recent work <span class="cta-arrow">→</span></a>
                 </p>
+                <div class="hero-chat-wrapper">
+                    <button class="hero-chat-btn" id="heroChatBtn">
+                        <i class="fas fa-comments"></i>
+                        <span>Chat with me</span>
+                    </button>
+                </div>
                 <div class="hero-social">
                     <a href="https://www.linkedin.com/in/jwalith-kristam" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/jwalith" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
@@ -1216,6 +1222,68 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating Chat Button -->
+    <button class="chat-float-btn" id="chatFloatBtn" aria-label="Open chat">
+        <i class="fas fa-comments"></i>
+        <span class="chat-notification-dot"></span>
+    </button>
+
+    <!-- Chat Window Modal -->
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-window">
+            <div class="chat-header">
+                <div class="chat-header-content">
+                    <div class="chat-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="chat-header-text">
+                        <h3>Ask Me Anything</h3>
+                        <p>Powered by AI</p>
+                    </div>
+                </div>
+                <button class="chat-close-btn" id="chatCloseBtn" aria-label="Close chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message bot-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <p>Hey there 👋 Welcome to Jwalith's portfolio.</p>
+                        <p style="margin-top: 0.5rem;">I'm Kakarot, and trust me — I can talk about Jwalith all day 😄</p>
+                        <p style="margin-top: 0.5rem;">Got any questions about his work, experience, or projects?</p>
+                        <div class="quick-replies" id="quickReplies">
+                            <button class="quick-reply-btn" data-query="Tell me about Jwalith's experience">💼 Experience</button>
+                            <button class="quick-reply-btn" data-query="Tell me about Jwalith's projects">📊 Projects</button>
+                            <button class="quick-reply-btn" data-query="Tell me about Jwalith's skills">🧠 Skills</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <div class="chat-typing-indicator" id="typingIndicator" style="display: none;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <form class="chat-form" id="chatForm">
+                    <input 
+                        type="text" 
+                        id="chatInput" 
+                        class="chat-input" 
+                        placeholder="Ask me anything about Jwalith..."
+                        autocomplete="off"
+                    />
+                    <button type="submit" class="chat-send-btn" id="chatSendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

@@ -697,3 +697,404 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// ============================================
+// CHAT FEATURE FUNCTIONALITY
+// ============================================
+
+// Firebase Function Configuration
+// TODO: Replace with your actual Firebase Function URL after deployment
+// Example: https://us-central1-your-project-id.cloudfunctions.net/chatWithGemini
+const FIREBASE_FUNCTION_URL = 'https://us-central1-portfolio-291a4.cloudfunctions.net/chatWithGemini';
+// const FIREBASE_FUNCTION_URL = 'const FIREBASE_FUNCTION_URL = 'https://us-central1-portfolio-291a4.cloudfunctions.net/chatWithGemini'';
+
+// Chat UI Elements
+const chatModal = document.getElementById('chatModal');
+const chatFloatBtn = document.getElementById('chatFloatBtn');
+const heroChatBtn = document.getElementById('heroChatBtn');
+const chatCloseBtn = document.getElementById('chatCloseBtn');
+const chatForm = document.getElementById('chatForm');
+const chatInput = document.getElementById('chatInput');
+const chatMessages = document.getElementById('chatMessages');
+const typingIndicator = document.getElementById('typingIndicator');
+const chatSendBtn = document.getElementById('chatSendBtn');
+
+// Conversation history (stored in localStorage)
+let conversationHistory = [];
+
+// Load conversation history from localStorage
+function loadConversationHistory() {
+    try {
+        const saved = localStorage.getItem('chatHistory');
+        if (saved) {
+            conversationHistory = JSON.parse(saved);
+        }
+    } catch (error) {
+        console.error('Error loading conversation history:', error);
+        conversationHistory = [];
+    }
+}
+
+// Save conversation history to localStorage
+function saveConversationHistory() {
+    try {
+        // Keep only last 10 messages to avoid storage issues
+        const recentHistory = conversationHistory.slice(-10);
+        localStorage.setItem('chatHistory', JSON.stringify(recentHistory));
+    } catch (error) {
+        console.error('Error saving conversation history:', error);
+    }
+}
+
+// Initialize conversation history on page load
+loadConversationHistory();
+
+// Open chat modal
+function openChat() {
+    if (chatModal) {
+        chatModal.classList.add('active');
+        chatInput.focus();
+        // Hide notification dot when opened
+        const notificationDot = document.querySelector('.chat-notification-dot');
+        if (notificationDot) {
+            notificationDot.style.display = 'none';
+        }
+        
+        // Track chat open event in Google Analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'chat_opened', {
+                'event_category': 'Engagement',
+                'event_label': 'Chat Feature'
+            });
+        }
+    }
+}
+
+// Close chat modal
+function closeChat() {
+    if (chatModal) {
+        chatModal.classList.remove('active');
+    }
+}
+
+// Send chat message to Firebase function
+async function sendChatMessage(userMessage) {
+    // Add user message to conversation history
+    conversationHistory.push({
+        role: 'user',
+        content: userMessage
+    });
+    
+    // Check if Firebase function URL is configured
+    if (FIREBASE_FUNCTION_URL === 'YOUR_FIREBASE_FUNCTION_URL_HERE') {
+        // Show setup message if not configured
+        setTimeout(() => {
+            hideTyping();
+            addMessage("I'm still being set up! Please configure your Firebase Function URL in script.js. Check FIREBASE_GEMINI_SETUP.md for instructions. 🚀", false);
+            if (chatSendBtn) {
+                chatSendBtn.disabled = false;
+            }
+            if (chatInput) {
+                chatInput.focus();
+            }
+        }, 1500);
+        return;
+    }
+    
+    // Call Firebase Function to get Gemini response
+    try {
+        const response = await fetch(FIREBASE_FUNCTION_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                message: userMessage,
+                conversationHistory: conversationHistory.slice(-5) // Send last 5 messages for context
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        if (data.error) {
+            throw new Error(data.error);
+        }
+        
+        hideTyping();
+        
+        // Add bot response to conversation history
+        conversationHistory.push({
+            role: 'assistant',
+            content: data.reply
+        });
+        
+        // Save updated history
+        saveConversationHistory();
+        
+        // Display bot response
+        addMessage(data.reply, false);
+        
+        // Track successful response in Google Analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'chat_response_received', {
+                'event_category': 'Engagement',
+                'event_label': 'Chat Feature'
+            });
+        }
+        
+    } catch (error) {
+        console.error('Error calling Firebase function:', error);
+        hideTyping();
+        
+        // Remove user message from history if request failed
+        conversationHistory.pop();
+        
+        // Show user-friendly error message
+        let errorMessage = "Sorry, I'm having trouble connecting. Please try again later.";
+        
+        if (error.message.includes('429')) {
+            errorMessage = "Too many requests. Please wait a moment and try again.";
+        } else if (error.message.includes('500')) {
+            errorMessage = "Server error. Please try again in a moment.";
+        } else if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+            errorMessage = "Network error. Please check your connection and try again.";
+        }
+        
+        addMessage(errorMessage, false);
+        
+        // Track error in Google Analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'chat_error', {
+                'event_category': 'Error',
+                'event_label': error.message
+            });
+        }
+    } finally {
+        if (chatSendBtn) {
+            chatSendBtn.disabled = false;
+        }
+        if (chatInput) {
+            chatInput.focus();
+        }
+    }
+}
+
+// Quick reply button handler
+function handleQuickReply(query) {
+    if (!query) return;
+    
+    // Add user message
+    addMessage(query, true);
+    
+    // Clear input
+    if (chatInput) {
+        chatInput.value = '';
+    }
+    if (chatSendBtn) {
+        chatSendBtn.disabled = true;
+    }
+    
+    // Show typing indicator
+    showTyping();
+    
+    // Track message sent event in Google Analytics
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'quick_reply_clicked', {
+            'event_category': 'Engagement',
+            'event_label': query
+        });
+    }
+    
+    // Send message to Firebase function
+    sendChatMessage(query);
+}
+
+// Event Listeners
+if (chatFloatBtn) {
+    chatFloatBtn.addEventListener('click', openChat);
+}
+
+if (heroChatBtn) {
+    heroChatBtn.addEventListener('click', openChat);
+}
+
+// Quick reply buttons
+document.addEventListener('DOMContentLoaded', () => {
+    const quickReplyButtons = document.querySelectorAll('.quick-reply-btn');
+    quickReplyButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const query = button.getAttribute('data-query');
+            if (query) {
+                handleQuickReply(query);
+            }
+        });
+    });
+});
+
+if (chatCloseBtn) {
+    chatCloseBtn.addEventListener('click', closeChat);
+}
+
+// Close on backdrop click
+if (chatModal) {
+    chatModal.addEventListener('click', (e) => {
+        if (e.target === chatModal) {
+            closeChat();
+        }
+    });
+}
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && chatModal && chatModal.classList.contains('active')) {
+        closeChat();
+    }
+});
+
+// Convert markdown to HTML (basic support)
+function markdownToHTML(text) {
+    if (!text) return '';
+    
+    // Escape HTML first to prevent XSS
+    let html = text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    
+    // Split into lines for processing
+    const lines = html.split('\n');
+    const result = [];
+    let inList = false;
+    
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        
+        // Check if line is a bullet point
+        const bulletMatch = line.match(/^\*\s+(.+)$/);
+        
+        if (bulletMatch) {
+            if (!inList) {
+                result.push('<ul>');
+                inList = true;
+            }
+            // Process the content inside the bullet (handle bold/italic)
+            let content = bulletMatch[1];
+            content = content.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+            result.push(`<li>${content}</li>`);
+        } else {
+            if (inList) {
+                result.push('</ul>');
+                inList = false;
+            }
+            
+            if (line) {
+                // Process bold **text** to <strong>text</strong>
+                let processedLine = line;
+                processedLine = processedLine.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+                result.push(processedLine);
+            } else {
+                // Empty line - add paragraph break
+                result.push('<br>');
+            }
+        }
+    }
+    
+    // Close any open list
+    if (inList) {
+        result.push('</ul>');
+    }
+    
+    // Join and convert remaining line breaks
+    html = result.join('\n');
+    html = html.replace(/\n/g, '<br>');
+    
+    return html;
+}
+
+// Add message to chat
+function addMessage(text, isUser = false) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `chat-message ${isUser ? 'user-message' : 'bot-message'}`;
+    
+    const avatarDiv = document.createElement('div');
+    avatarDiv.className = 'message-avatar';
+    avatarDiv.innerHTML = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+    
+    const contentDiv = document.createElement('div');
+    contentDiv.className = 'message-content';
+    
+    // Convert markdown to HTML for bot messages, plain text for user messages
+    if (isUser) {
+        const p = document.createElement('p');
+        p.textContent = text;
+        contentDiv.appendChild(p);
+    } else {
+        // For bot messages, parse markdown and support multiple paragraphs
+        const html = markdownToHTML(text);
+        contentDiv.innerHTML = html;
+    }
+    
+    messageDiv.appendChild(avatarDiv);
+    messageDiv.appendChild(contentDiv);
+    
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Show typing indicator
+function showTyping() {
+    if (typingIndicator) {
+        typingIndicator.style.display = 'flex';
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+}
+
+// Hide typing indicator
+function hideTyping() {
+    if (typingIndicator) {
+        typingIndicator.style.display = 'none';
+    }
+}
+
+// Handle chat form submission
+if (chatForm) {
+    chatForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const userMessage = chatInput.value.trim();
+        if (!userMessage) return;
+        
+        // Add user message
+        addMessage(userMessage, true);
+        chatInput.value = '';
+        if (chatSendBtn) {
+            chatSendBtn.disabled = true;
+        }
+        
+        // Show typing indicator
+        showTyping();
+        
+        // Track message sent event in Google Analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'chat_message_sent', {
+                'event_category': 'Engagement',
+                'event_label': 'Chat Feature'
+            });
+        }
+        
+        // Send message using the reusable function
+        sendChatMessage(userMessage);
+    });
+}
+
+// Auto-resize chat input (optional enhancement)
+if (chatInput) {
+    chatInput.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = (this.scrollHeight) + 'px';
+    });
+}
